@@ -5,6 +5,9 @@ import * as path from 'path';
 // Define your template types and their files
 const commonFiles = [
   '.gitignore',
+  '.vscode/extensions.json',
+  '.vscode/settings.json',
+  '.vscode/style.css',
   'agents.md',
   'claude.md',
   'README.md',
@@ -38,9 +41,8 @@ const templates: Record<string, string[]> = {
   'vscode-extension': [
     '.gitignore',
     '.vscode/extensions.json',
-    '.vscode/launch.json',
     '.vscode/settings.json',
-    '.vscode/tasks.json',
+    '.vscode/style.css',
     '.vscodeignore',
     'agents.md',
     'claude.md',

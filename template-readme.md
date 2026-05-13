@@ -122,33 +122,49 @@ This extension allows you to quickly scaffold new projects from predefined templ
 
 ## Project Templates Overview
 
-```mermaid
-graph LR
-    PT["Project Templates"]
-    
-    PT --> NJ["node-js"]
-    PT --> PY["python"]
-    PT --> WEB["web"]
-    
-    NJ --> NJ_RME["{projectName}-readme.md"]
-    NJ --> NJ_PKG["package.json"]
-    NJ --> NJ_SRC["src/"]
-    NJ_SRC --> NJ_IDX["index.js"]
-    NJ --> NJ_WS["{projectName}.code-workspace"]
-    
-    PY --> PY_RME["{projectName}-readme.md"]
-    PY --> PY_REQ["requirements.txt"]
-    PY --> PY_SRC["src/"]
-    PY_SRC --> PY_MAIN["main.py"]
-    PY --> PY_WS["{projectName}.code-workspace"]
-    
-    WEB --> WEB_RME["{projectName}-readme.md"]
-    WEB --> WEB_HTML["index.html"]
-    WEB --> WEB_SRC["src/"]
-    WEB_SRC --> WEB_JS["app.js"]
-    WEB_SRC --> WEB_CSS["style.css"]
-    WEB --> WEB_WS["{projectName}.code-workspace"]
-```
+Each template includes a comprehensive set of files needed for development:
+
+### Files Copied to All Templates
+
+| File / Folder | Description |
+|---|---|
+| `.gitignore` | Git ignore patterns |
+| `.vscode/extensions.json` | Recommended VS Code extensions |
+| `.vscode/launch.json` | Debug configuration |
+| `.vscode/settings.json` | VS Code workspace settings |
+| `.vscode/style.css` | VS Code UI styling |
+| `.vscode/tasks.json` | Custom build tasks |
+| `.vscodeignore` | Extension package ignore patterns |
+| `agents.md` | Workspace agent instructions |
+| `claude.md` | Claude-specific workflow documentation |
+| `init-template.js` | Node.js initialization script |
+| `init-template.ps1` | PowerShell initialization script |
+| `init-template.sh` | Bash initialization script |
+| `tsconfig.json` | TypeScript compiler configuration |
+| `{projectName}-readme.md` | Project documentation (auto-renamed from README.md) |
+| `{projectName}.code-workspace` | Workspace file (auto-renamed from template.code-workspace) |
+
+### Template-Specific Files
+
+#### Node.js Template
+| File | Description |
+|---|---|
+| `package.json` | npm package configuration |
+| `src/index.js` | Entry point |
+
+#### Python Template
+| File | Description |
+|---|---|
+| `requirements.txt` | Python dependencies |
+| `src/main.py` | Entry point |
+
+#### Web Template
+| File | Description |
+|---|---|
+| `index.html` | HTML entry point |
+| `src/app.js` | JavaScript application |
+| `src/style.css` | Stylesheet |
+
 
 ## Features
 - Right-click in the Explorer to create a new project from a template

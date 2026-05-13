@@ -3,10 +3,41 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Define your template types and their files
+const commonFiles = [
+  '.gitignore',
+  '.vscode/extensions.json',
+  '.vscode/launch.json',
+  '.vscode/settings.json',
+  '.vscode/style.css',
+  '.vscode/tasks.json',
+  '.vscodeignore',
+  'agents.md',
+  'claude.md',
+  'init-template.js',
+  'init-template.ps1',
+  'init-template.sh',
+  'README.md',
+  'template.code-workspace',
+  'tsconfig.json'
+];
+
 const templates: Record<string, string[]> = {
-  'node-js': ['readme.md', 'package.json', 'src/index.js', 'template.code-workspace'],
-  'python': ['readme.md', 'requirements.txt', 'src/main.py', 'template.code-workspace'],
-  'web': ['readme.md', 'index.html', 'src/app.js', 'src/style.css', 'template.code-workspace']
+  'node-js': [
+    ...commonFiles,
+    'package.json',
+    'src/index.js'
+  ],
+  'python': [
+    ...commonFiles,
+    'requirements.txt',
+    'src/main.py'
+  ],
+  'web': [
+    ...commonFiles,
+    'index.html',
+    'src/app.js',
+    'src/style.css'
+  ]
 };
 
 function copyTemplateFiles(templateType: string, targetDir: string, extensionPath: string) {
@@ -18,8 +49,8 @@ function copyTemplateFiles(templateType: string, targetDir: string, extensionPat
     const src = path.join(extensionPath, 'templates', templateType.toLowerCase().replace('.', '-'), file);
     let destFile = file;
     
-    // Rename readme.md to {projectName}-readme.md
-    if (file === 'readme.md') {
+    // Rename README.md to {projectName}-readme.md
+    if (file === 'README.md') {
       destFile = `${projectName}-readme.md`;
     }
     

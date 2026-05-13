@@ -119,6 +119,33 @@ git commit -m "chore: initialize project from template"
 
 This extension allows you to quickly scaffold new projects from predefined templates (Node.js, Python, Web) using a context menu command. It features a template type selector and only copies the files needed for the selected project type.
 
+## Project Templates Overview
+
+```mermaid
+graph TD
+    PT["Project Templates"]
+    
+    PT --> NJ["node-js"]
+    PT --> PY["python"]
+    PT --> WEB["web"]
+    
+    NJ --> NJ_RME["readme.md"]
+    NJ --> NJ_PKG["package.json"]
+    NJ --> NJ_SRC["src/"]
+    NJ_SRC --> NJ_IDX["index.js"]
+    
+    PY --> PY_RME["readme.md"]
+    PY --> PY_REQ["requirements.txt"]
+    PY --> PY_SRC["src/"]
+    PY_SRC --> PY_MAIN["main.py"]
+    
+    WEB --> WEB_RME["readme.md"]
+    WEB --> WEB_HTML["index.html"]
+    WEB --> WEB_SRC["src/"]
+    WEB_SRC --> WEB_JS["app.js"]
+    WEB_SRC --> WEB_CSS["style.css"]
+```
+
 ## Features
 - Right-click in the Explorer to create a new project from a template
 - Choose from multiple template types

@@ -2,7 +2,7 @@
   "name": "project-template-generator",
   "displayName": "Project Template Generator",
   "description": "VS Code extension to generate new projects from templates with a type selector. All builds output to the 'package' folder.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "your-publisher-name",
   "engines": {
     "vscode": ">=1.70.0"

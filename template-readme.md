@@ -124,17 +124,11 @@ This extension allows you to quickly scaffold new projects from predefined templ
 
 Each template includes a tailored set of files for that project type. All templates include an `assets/` folder for storing images and graphics.
 
-### Common Development Templates (Node.js, Python, Web)
+### Common Files (All Templates)
 
 | File / Folder | Description |
 |---|---|
 | `.gitignore` | Git ignore patterns |
-| `.vscode/extensions.json` | Recommended VS Code extensions |
-| `.vscode/launch.json` | Debug configuration |
-| `.vscode/settings.json` | VS Code workspace settings |
-| `.vscode/style.css` | VS Code UI styling |
-| `.vscode/tasks.json` | Custom build tasks |
-| `.vscodeignore` | Extension package ignore patterns |
 | `agents.md` | Workspace agent instructions |
 | `claude.md` | Claude-specific workflow documentation |
 | `{projectName}-readme.md` | Project documentation (auto-renamed from README.md) |
@@ -162,34 +156,22 @@ Each template includes a tailored set of files for that project type. All templa
 | `src/app.js` | JavaScript application |
 | `src/style.css` | Stylesheet |
 
-#### Documentation Template (Minimal)
+#### Documentation Template
 | File | Description |
 |---|---|
 | `.gitignore` | Git ignore patterns |
 | `{projectName}-readme.md` | Project documentation |
 | `{projectName}.code-workspace` | Workspace file |
-| `index.md` | Main documentation page |
-| `docs/getting-started.md` | Getting started guide |
 | `assets/` | Folder for images and graphics |
 
 #### VS Code Extension Template
 | File | Description |
 |---|---|
-| `.gitignore` | Git ignore patterns |
-| `.vscode/extensions.json` | Recommended VS Code extensions |
-| `.vscode/launch.json` | Debug configuration |
-| `.vscode/settings.json` | VS Code workspace settings |
-| `.vscode/tasks.json` | Custom build tasks |
 | `.vscodeignore` | Extension package ignore patterns |
-| `agents.md` | Workspace agent instructions |
-| `claude.md` | Claude-specific workflow documentation |
 | `package.json` | npm package configuration for extension |
 | `package/` | Output folder for VSIX builds |
 | `tsconfig.json` | TypeScript compiler configuration |
 | `src/extension.ts` | Main extension code |
-| `{projectName}-readme.md` | Extension documentation |
-| `{projectName}.code-workspace` | Workspace file |
-| `assets/` | Folder for images and graphics |
 
 
 ## Features

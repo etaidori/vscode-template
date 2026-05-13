@@ -1,0 +1,39 @@
+{
+  "name": "my-extension",
+  "displayName": "My Extension",
+  "description": "A VS Code extension template",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": ">=1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:myExtension.hello"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "myExtension.hello",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "npm run clean-package && node -e \"const pkg = require('./package.json'); require('child_process').execSync('vsce package -o ./package/my-extension-' + pkg.version + '.vsix', {stdio: 'inherit'})\""
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^4.7.4",
+    "vsce": "^2.15.0"
+  }
+}

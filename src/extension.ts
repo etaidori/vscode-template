@@ -13,12 +13,8 @@ const commonFiles = [
   '.vscodeignore',
   'agents.md',
   'claude.md',
-  'init-template.js',
-  'init-template.ps1',
-  'init-template.sh',
   'README.md',
-  'template.code-workspace',
-  'tsconfig.json'
+  'template.code-workspace'
 ];
 
 const templates: Record<string, string[]> = {
@@ -37,6 +33,26 @@ const templates: Record<string, string[]> = {
     'index.html',
     'src/app.js',
     'src/style.css'
+  ],
+  'documentation': [
+    ...commonFiles,
+    'index.md',
+    'docs/getting-started.md'
+  ],
+  'vscode-extension': [
+    '.gitignore',
+    '.vscode/extensions.json',
+    '.vscode/launch.json',
+    '.vscode/settings.json',
+    '.vscode/tasks.json',
+    '.vscodeignore',
+    'agents.md',
+    'claude.md',
+    'package.json',
+    'README.md',
+    'tsconfig.json',
+    'src/extension.ts',
+    'template.code-workspace'
   ]
 };
 

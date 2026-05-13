@@ -122,7 +122,7 @@ This extension allows you to quickly scaffold new projects from predefined templ
 
 ## Project Templates Overview
 
-Each template includes a comprehensive set of files needed for development:
+Each template includes a comprehensive set of files needed for development. Infrastructure files (init scripts, tsconfig.json) are only included in extension and documentation templates where they're needed.
 
 ### Files Copied to All Templates
 
@@ -137,10 +137,6 @@ Each template includes a comprehensive set of files needed for development:
 | `.vscodeignore` | Extension package ignore patterns |
 | `agents.md` | Workspace agent instructions |
 | `claude.md` | Claude-specific workflow documentation |
-| `init-template.js` | Node.js initialization script |
-| `init-template.ps1` | PowerShell initialization script |
-| `init-template.sh` | Bash initialization script |
-| `tsconfig.json` | TypeScript compiler configuration |
 | `{projectName}-readme.md` | Project documentation (auto-renamed from README.md) |
 | `{projectName}.code-workspace` | Workspace file (auto-renamed from template.code-workspace) |
 
@@ -164,6 +160,19 @@ Each template includes a comprehensive set of files needed for development:
 | `index.html` | HTML entry point |
 | `src/app.js` | JavaScript application |
 | `src/style.css` | Stylesheet |
+
+#### Documentation Template
+| File | Description |
+|---|---|
+| `index.md` | Main documentation page |
+| `docs/getting-started.md` | Getting started guide |
+
+#### VS Code Extension Template
+| File | Description |
+|---|---|
+| `package.json` | npm package configuration for extension |
+| `tsconfig.json` | TypeScript compiler configuration |
+| `src/extension.ts` | Main extension code |
 
 
 ## Features

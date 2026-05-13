@@ -14,7 +14,8 @@ const commonFiles = [
   'agents.md',
   'claude.md',
   'README.md',
-  'template.code-workspace'
+  'template.code-workspace',
+  'assets/.gitkeep'
 ];
 
 const templates: Record<string, string[]> = {
@@ -35,9 +36,12 @@ const templates: Record<string, string[]> = {
     'src/style.css'
   ],
   'documentation': [
-    ...commonFiles,
+    '.gitignore',
+    'README.md',
+    'template.code-workspace',
     'index.md',
-    'docs/getting-started.md'
+    'docs/getting-started.md',
+    'assets/.gitkeep'
   ],
   'vscode-extension': [
     '.gitignore',
@@ -49,10 +53,12 @@ const templates: Record<string, string[]> = {
     'agents.md',
     'claude.md',
     'package.json',
+    'package/package.json',
     'README.md',
     'tsconfig.json',
     'src/extension.ts',
-    'template.code-workspace'
+    'template.code-workspace',
+    'assets/.gitkeep'
   ]
 };
 
@@ -84,6 +90,17 @@ function copyTemplateFiles(templateType: string, targetDir: string, extensionPat
   });
 }
 
+async function initializeGit(targetDir: string): Promise<void> {
+  const { execSync } = require('child_process');
+  try {
+    execSync('git init', { cwd: targetDir });
+    execSync('git add .', { cwd: targetDir });
+    execSync('git commit -m "chore: initialize project from template"', { cwd: targetDir });
+  } catch (error) {
+    vscode.window.showErrorMessage(`Failed to initialize git repository: ${error}`);
+  }
+}
+
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand('projectTemplateGenerator.createProject', async (uri: vscode.Uri) => {
     const templateType = await vscode.window.showQuickPick(Object.keys(templates), {
@@ -100,6 +117,15 @@ export function activate(context: vscode.ExtensionContext) {
     }
     copyTemplateFiles(templateType, targetDir, context.extensionPath);
     vscode.window.showInformationMessage(`Project created using ${templateType} template.`);
+    
+    // Ask if user wants to initialize git
+    const initGit = await vscode.window.showQuickPick(['Yes', 'No'], {
+      placeHolder: 'Initialize Git repository?'
+    });
+    if (initGit === 'Yes') {
+      await initializeGit(targetDir);
+      vscode.window.showInformationMessage('Git repository initialized with initial commit.');
+    }
   });
   context.subscriptions.push(disposable);
 }

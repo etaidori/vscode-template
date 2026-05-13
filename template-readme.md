@@ -122,9 +122,9 @@ This extension allows you to quickly scaffold new projects from predefined templ
 
 ## Project Templates Overview
 
-Each template includes a comprehensive set of files needed for development. Infrastructure files (init scripts, tsconfig.json) are only included in extension and documentation templates where they're needed.
+Each template includes a tailored set of files for that project type. All templates include an `assets/` folder for storing images and graphics.
 
-### Files Copied to All Templates
+### Common Development Templates (Node.js, Python, Web)
 
 | File / Folder | Description |
 |---|---|
@@ -139,6 +139,7 @@ Each template includes a comprehensive set of files needed for development. Infr
 | `claude.md` | Claude-specific workflow documentation |
 | `{projectName}-readme.md` | Project documentation (auto-renamed from README.md) |
 | `{projectName}.code-workspace` | Workspace file (auto-renamed from template.code-workspace) |
+| `assets/` | Folder for images and graphics |
 
 ### Template-Specific Files
 
@@ -161,30 +162,49 @@ Each template includes a comprehensive set of files needed for development. Infr
 | `src/app.js` | JavaScript application |
 | `src/style.css` | Stylesheet |
 
-#### Documentation Template
+#### Documentation Template (Minimal)
 | File | Description |
 |---|---|
+| `.gitignore` | Git ignore patterns |
+| `{projectName}-readme.md` | Project documentation |
+| `{projectName}.code-workspace` | Workspace file |
 | `index.md` | Main documentation page |
 | `docs/getting-started.md` | Getting started guide |
+| `assets/` | Folder for images and graphics |
 
 #### VS Code Extension Template
 | File | Description |
 |---|---|
+| `.gitignore` | Git ignore patterns |
+| `.vscode/extensions.json` | Recommended VS Code extensions |
+| `.vscode/launch.json` | Debug configuration |
+| `.vscode/settings.json` | VS Code workspace settings |
+| `.vscode/tasks.json` | Custom build tasks |
+| `.vscodeignore` | Extension package ignore patterns |
+| `agents.md` | Workspace agent instructions |
+| `claude.md` | Claude-specific workflow documentation |
 | `package.json` | npm package configuration for extension |
+| `package/` | Output folder for VSIX builds |
 | `tsconfig.json` | TypeScript compiler configuration |
 | `src/extension.ts` | Main extension code |
+| `{projectName}-readme.md` | Extension documentation |
+| `{projectName}.code-workspace` | Workspace file |
+| `assets/` | Folder for images and graphics |
 
 
 ## Features
 - Right-click in the Explorer to create a new project from a template
-- Choose from multiple template types
-- Only essential files are copied
+- Choose from 5 template types: Node.js, Python, Web, Documentation, VS Code Extension
+- Only essential files are copied for the selected template type
+- **Git initialization prompt** - After creating a project, you're asked if you want to initialize a Git repository
 - All VSIX builds are output to the `package/` folder
+- All templates include an `assets/` folder for storing project images and graphics
 
 ## Usage
 1. Open the command palette or right-click in the Explorer and select **Create Project from Template**.
 2. Choose your desired template type.
 3. The template files will be copied into the selected folder.
+4. When prompted, choose whether to initialize a Git repository (not all template types may need this).
 
 ## Development
 - Run `npm install` to install dependencies
@@ -192,3 +212,4 @@ Each template includes a comprehensive set of files needed for development. Infr
 
 ## Adding Templates
 Add new templates and their files under the `templates/` directory. Update `src/extension.ts` to include the new template type and its files.
+

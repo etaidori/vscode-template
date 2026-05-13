@@ -112,6 +112,7 @@ If scripts don't work, manually copy all template files to your new project fold
 git init
 git add .
 git commit -m "chore: initialize project from template"
+```
 
 ---
 
@@ -163,4 +164,3 @@ graph TD
 
 ## Adding Templates
 Add new templates and their files under the `templates/` directory. Update `src/extension.ts` to include the new template type and its files.
-```

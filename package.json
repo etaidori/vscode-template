@@ -2,7 +2,7 @@
   "name": "project-template-generator",
   "displayName": "Project Template Generator",
   "description": "VS Code extension to generate new projects from templates with a type selector. All builds output to the 'package' folder.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "your-publisher-name",
   "engines": {
     "vscode": ">=1.70.0"
@@ -26,7 +26,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "package": "vsce package -o ./package/project-template-generator.vsix"
+    "clean-package": "powershell -NoProfile -Command \"Get-Item './package/*.vsix' -ErrorAction SilentlyContinue | Remove-Item -Force\"",
+    "package": "npm run clean-package && node -e \"const pkg = require('./package.json'); require('child_process').execSync('vsce package -o ./package/project-template-generator-' + pkg.version + '.vsix', {stdio: 'inherit'})\""
   },
   "devDependencies": {
     "@types/vscode": "^1.70.0",

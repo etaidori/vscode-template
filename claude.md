@@ -1,25 +1,39 @@
 # Workspace Agent Instructions
 
-## Required Workflow For Every Code Change
+## Git Workflow — Optional with "Process Git"
 
-Complete these steps in order for every task:
+By default, code changes are made **without git operations**. The full git workflow (version bumping, packaging, committing, pushing) only runs when you include `"Process Git"` in your request.
 
-1. **Update the version** in `package.json` manually (e.g. `2.2.20` → `2.2.21`). Do NOT use `npm version patch` — versioning is managed by hand.
-2. **Update `readme.md`** to reflect any changes: features, commands, shortcuts, layout, configuration, VSIX filename.
-3. **Build and package**: run `npm run package`. This compiles TypeScript and produces a `.vsix` in `package/`.
-4. **Delete old VSIX files** from `package/` — keep only the newly built one. Stage the deletions along with the other changes.
-5. **Stage** the relevant changed files.
-6. **Commit** with a meaningful message using one of these prefixes:
+### Default Behavior (No Git Operations)
+- Update code, files, and documentation
+- Build and compile as needed
+- **Skip:** version bumping, git commit, git push
+
+### With "Process Git" Instruction
+When you include `"Process Git"` in your request, complete these steps:
+
+1. **Update the version** in `package.json` (e.g. `0.0.9` → `0.0.10`)
+2. **Update documentation** (`template-readme.md`, etc.) to reflect any changes
+3. **Build and package**: run `npm run package`. Auto-cleans old VSIX files and versions the output.
+4. **Stage** changed files: `git add -A`
+5. **Commit** with a meaningful message using one of these prefixes:
    - `feat:` — new feature
    - `fix:` — bug fix
    - `refactor:` — restructuring without behavior change
    - `chore:` — build, deps, tooling
    - `docs:` — documentation only
-   - Do NOT add a scope in parentheses — use plain prefixes only: `feat: add response time display`
+   - Format: `prefix: description` (no scope parentheses)
    - Avoid vague messages like "update files" or "misc fixes"
-7. **Push** to remote.
+6. **Push** to remote
+
+## Examples
+
+- `"Add a new template"` → Code changes only
+- `"Fix the file copying issue. Process Git"` → Code changes + full git workflow
+- `"Update documentation"` → Documentation only, no git operations
 
 ## Commit Message Guidance
 
-- Keep commit summaries specific and meaningful.
-- Avoid vague messages such as "update files" or "misc fixes".
+- Keep commit summaries specific and meaningful
+- Be descriptive: `feat: add git initialization prompt to extension` instead of `update files`
+- Avoid vague messages like "update files" or "misc fixes"

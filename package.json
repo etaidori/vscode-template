@@ -2,7 +2,7 @@
   "name": "project-template-generator",
   "displayName": "Project Template Generator",
   "description": "VS Code extension to generate new projects from templates with a type selector. All builds output to the 'package' folder.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "your-publisher-name",
   "readme": "readme.md",
   "icon": "assets/panel-icon.png",
@@ -13,7 +13,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:projectTemplateGenerator.createProject"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -22,7 +22,16 @@
         "command": "projectTemplateGenerator.createProject",
         "title": "Create Project from Template"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "projectTemplateGenerator.createProject",
+          "group": "2_workspace",
+          "when": "explorerResourceIsFolder || explorerResourceIsRoot"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

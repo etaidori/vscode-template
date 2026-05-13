@@ -4,17 +4,31 @@ import * as path from 'path';
 
 // Define your template types and their files
 const templates: Record<string, string[]> = {
-  'Node.js': ['README.md', 'package.json', 'src/index.js'],
-  'Python': ['README.md', 'requirements.txt', 'src/main.py'],
-  'Web': ['README.md', 'index.html', 'src/app.js', 'src/style.css']
+  'node-js': ['readme.md', 'package.json', 'src/index.js', 'template.code-workspace'],
+  'python': ['readme.md', 'requirements.txt', 'src/main.py', 'template.code-workspace'],
+  'web': ['readme.md', 'index.html', 'src/app.js', 'src/style.css', 'template.code-workspace']
 };
 
 function copyTemplateFiles(templateType: string, targetDir: string, extensionPath: string) {
   const files: string[] | undefined = templates[templateType];
   if (!files) return;
+  const projectName = path.basename(targetDir);
+  
   files.forEach((file: string) => {
-    const src = path.join(extensionPath, 'templates', templateType, file);
-    const dest = path.join(targetDir, file);
+    const src = path.join(extensionPath, 'templates', templateType.toLowerCase().replace('.', '-'), file);
+    let destFile = file;
+    
+    // Rename readme.md to {projectName}-readme.md
+    if (file === 'readme.md') {
+      destFile = `${projectName}-readme.md`;
+    }
+    
+    // Rename template.code-workspace to {projectName}.code-workspace
+    if (file === 'template.code-workspace') {
+      destFile = `${projectName}.code-workspace`;
+    }
+    
+    const dest = path.join(targetDir, destFile);
     const destDir = path.dirname(dest);
     if (!fs.existsSync(destDir)) {
       fs.mkdirSync(destDir, { recursive: true });

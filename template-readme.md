@@ -123,28 +123,31 @@ This extension allows you to quickly scaffold new projects from predefined templ
 ## Project Templates Overview
 
 ```mermaid
-graph TD
+graph LR
     PT["Project Templates"]
     
     PT --> NJ["node-js"]
     PT --> PY["python"]
     PT --> WEB["web"]
     
-    NJ --> NJ_RME["readme.md"]
+    NJ --> NJ_RME["{projectName}-readme.md"]
     NJ --> NJ_PKG["package.json"]
     NJ --> NJ_SRC["src/"]
     NJ_SRC --> NJ_IDX["index.js"]
+    NJ --> NJ_WS["{projectName}.code-workspace"]
     
-    PY --> PY_RME["readme.md"]
+    PY --> PY_RME["{projectName}-readme.md"]
     PY --> PY_REQ["requirements.txt"]
     PY --> PY_SRC["src/"]
     PY_SRC --> PY_MAIN["main.py"]
+    PY --> PY_WS["{projectName}.code-workspace"]
     
-    WEB --> WEB_RME["readme.md"]
+    WEB --> WEB_RME["{projectName}-readme.md"]
     WEB --> WEB_HTML["index.html"]
     WEB --> WEB_SRC["src/"]
     WEB_SRC --> WEB_JS["app.js"]
     WEB_SRC --> WEB_CSS["style.css"]
+    WEB --> WEB_WS["{projectName}.code-workspace"]
 ```
 
 ## Features

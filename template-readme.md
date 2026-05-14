@@ -129,6 +129,7 @@ Each template includes a tailored set of files for that project type. All templa
 | File / Folder | Description |
 |---|---|
 | `.gitignore` | Git ignore patterns |
+| `.vscodeignore` | VS Code extension/package ignore patterns |
 | `.vscode/extensions.json` | Recommended VS Code extensions (empty by default) |
 | `.vscode/settings.json` | VS Code workspace settings |
 | `.vscode/style.css` | VS Code UI styling |
@@ -136,7 +137,6 @@ Each template includes a tailored set of files for that project type. All templa
 | `claude.md` | Claude-specific workflow documentation |
 | `{projectName}-readme.md` | Project documentation (auto-renamed from README.md) |
 | `{projectName}.code-workspace` | Workspace file (auto-renamed from template.code-workspace) |
-| `assets/` | Folder for images and graphics |
 
 ### Template-Specific Files
 
@@ -163,9 +163,13 @@ Each template includes a tailored set of files for that project type. All templa
 | File | Description |
 |---|---|
 | `.gitignore` | Git ignore patterns |
+| `.vscodeignore` | VS Code extension/package ignore patterns |
+| `.vscode/` | VS Code settings and styles |
+| `.github/copilot-instructions.md` | Copilot repository instructions |
+| `agents.md` | Workspace agent instructions |
+| `claude.md` | Claude-specific workflow documentation |
 | `{projectName}-readme.md` | Project documentation |
 | `{projectName}.code-workspace` | Workspace file |
-| `assets/` | Folder for images and graphics |
 
 #### VS Code Extension Template
 | File | Description |

@@ -174,9 +174,10 @@ Each template includes a tailored set of files for that project type. All templa
 #### VS Code Extension Template
 | File | Description |
 |---|---|
+| `.github/copilot-instructions.md` | Copilot repository instructions |
+| `assets/` | Folder for images and graphics |
 | `.vscodeignore` | Extension package ignore patterns |
-| `package.json` | npm package configuration for extension |
-| `package/` | Output folder for VSIX builds |
+| `package/package.json` | Package metadata for packaged output folder |
 | `tsconfig.json` | TypeScript compiler configuration |
 | `src/extension.ts` | Main extension code |
 

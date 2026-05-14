@@ -167,6 +167,7 @@ Each template includes a tailored set of files for that project type. All templa
 | `.vscode/` | VS Code settings and styles |
 | `.github/copilot-instructions.md` | Copilot repository instructions |
 | `agents.md` | Workspace agent instructions |
+| `assets/` | Folder for images and graphics |
 | `claude.md` | Claude-specific workflow documentation |
 | `{projectName}-readme.md` | Project documentation |
 | `{projectName}.code-workspace` | Workspace file |

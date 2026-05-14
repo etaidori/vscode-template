@@ -40,6 +40,7 @@ const templates: Record<string, string[]> = {
     '.vscode/style.css',
     '.github/copilot-instructions.md',
     'agents.md',
+    'assets/.gitkeep',
     'claude.md',
     'README.md',
     'template.code-workspace'
@@ -81,7 +82,7 @@ function getTemplateMetadataPath(targetDir: string): string {
 function copyTemplateFiles(templateType: string, targetDir: string, extensionPath: string) {
   const files: string[] | undefined = templates[templateType];
   if (!files) return;
-  const projectName = path.basename(targetDir).toLowerCase();
+  const projectName = path.basename(targetDir).toLowerCase().replace(/\s+/g, '-');
   
   files.forEach((file: string) => {
     const src = path.join(extensionPath, 'templates', templateType.toLowerCase().replace('.', '-'), file);
